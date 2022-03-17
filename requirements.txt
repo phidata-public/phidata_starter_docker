@@ -38,7 +38,7 @@ gitdb==4.0.9
     # via gitpython
 gitpython==3.1.27
     # via phicli
-google-auth==2.6.0
+google-auth==2.6.2
     # via kubernetes
 h11==0.12.0
     # via httpcore
@@ -65,9 +65,9 @@ oauthlib==3.2.0
     # via requests-oauthlib
 pandas==1.4.1
     # via data (setup.py)
-phicli==0.1.1
+phicli==0.1.2
     # via phidata
-phidata==0.1.1
+phidata==0.1.2
     # via data (setup.py)
 pyasn1==0.4.8
     # via
