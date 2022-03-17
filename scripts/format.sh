@@ -25,8 +25,8 @@ print_heading() {
 main() {
   print_heading "Running: black $DATA_DIR"
   black $DATA_DIR
-  print_heading "Running: mypy $DATA_DIR"
-  mypy $DATA_DIR
+#  print_heading "Running: mypy $DATA_DIR"
+#  mypy $DATA_DIR
 }
 
 main "$@"
