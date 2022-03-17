@@ -4,13 +4,12 @@
 #
 # Install python dependencies
 # Usage:
-#   ./scripts/install_ws.sh    : Install dependencies
-#   ./scripts/install_ws.sh -u : Upgrade + Install dependencies
+#   ./scripts/install.sh    : Install dependencies
+#   ./scripts/install.sh -u : Upgrade + Install dependencies
 #
 ############################################################################
-
-CURR_SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-ROOT_DIR="$( dirname $CURR_SCRIPT_PATH )"
+SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$( dirname $SCRIPTS_DIR )"
 
 print_horizontal_line() {
   echo "------------------------------------------------------------"
@@ -27,13 +26,14 @@ install_python_deps() {
   pip install -r $ROOT_DIR/requirements.txt --no-deps
 
   print_heading "Installing airflow dependencies for code completion"
-  pip install -r $REQUIREMENTS_DIR/airflow-requirements.txt --no-deps
+  pip install -r $ROOT_DIR/airflow-requirements.txt --no-deps
 }
 
 update_python_deps() {
   print_heading "Compiling requirements"
-  CUSTOM_COMPILE_COMMAND="./scripts/install_ws.sh -u" \
-    pip-compile --upgrade $ROOT_DIR/requirements.in
+  cd $ROOT_DIR
+  CUSTOM_COMPILE_COMMAND="./scripts/install.sh -u" \
+    pip-compile --upgrade
 }
 
 install_workspace() {
