@@ -13,5 +13,6 @@ setup(
         "pandas",
         "phidata",
         "sqlalchemy",
+        "psycopg2-binary",
     ],
 )

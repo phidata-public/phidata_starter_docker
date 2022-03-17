@@ -69,6 +69,8 @@ phicli==0.1.2
     # via phidata
 phidata==0.1.2
     # via data (setup.py)
+psycopg2-binary==2.9.3
+    # via data (setup.py)
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
