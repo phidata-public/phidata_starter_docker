@@ -10,9 +10,10 @@ setup(
     packages=find_packages(),
     python_requires=">=3.7",
     install_requires=[
+        "matplotlib",
         "pandas",
         "phidata",
-        "sqlalchemy",
         "psycopg2-binary",
+        "sqlalchemy",
     ],
 )
