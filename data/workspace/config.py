@@ -11,9 +11,8 @@ from phidata.infra.docker.config import DockerConfig
 ##  - Dev database: A postgres db running in a container for dev data
 ######################################################
 
-pg_db_name = "pg_db"
 pg_db = PostgresDb(
-    name=pg_db_name,
+    name="pg_db",
     postgres_db="dev",
     postgres_user="dev",
     postgres_password="dev",
@@ -23,7 +22,7 @@ pg_db = PostgresDb(
 devbox = Devbox(
     # Init Airflow webserver when the container starts
     init_airflow_webserver=True,
-    db_connections={pg_db_name: pg_db.get_connection_url_docker()},
+    db_connections={pg_db.name: pg_db.get_connection_url_docker()},
     create_airflow_test_user=True,
 )
 dev_docker_config = DockerConfig(

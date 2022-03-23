@@ -4,7 +4,7 @@ from phidata.product import DataProduct
 from phidata.workflow.download.url_to_file import DownloadUrlToFile
 from phidata.workflow.upload.file_to_sql import UploadFileToSql
 
-from data.workspace.config import dev_pg
+from data.workspace.config import pg_db
 
 ##############################################################################
 ## This example shows how to build a data pipeline that calculates
@@ -25,10 +25,10 @@ download_file = DownloadUrlToFile(
 )
 
 # Step 2: Upload user_activity data to postgres table
-# Define a postgres table named `user_activity`. Use the connection url from dev_pg
+# Define a postgres table named `user_activity`. Use the connection url from pg_db
 user_activity_table = PostgresTable(
     name="user_activity",
-    db_conn_url=dev_pg.get_connection_url_local(),
+    db_conn_url=pg_db.get_connection_url_local(),
 )
 # Create a Workflow to load the file downloaded above to the PostgresTable
 upload_file = UploadFileToSql(
