@@ -13,11 +13,11 @@ from phidata.infra.docker.config import DockerConfig
 dev_pg_name = "dev_pg"
 dev_pg = PostgresDb(
     name=dev_pg_name,
-    # You can connect to this db on port 5532 (on the host machine)
-    container_host_port=5532,
     postgres_user="dev",
     postgres_db="dev",
     postgres_password="dev",
+    # You can connect to this db on port 5532 (on the host machine)
+    container_host_port=5532,
 )
 devbox = Devbox(
     # Init Airflow webserver when the container starts
