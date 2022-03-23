@@ -1,5 +1,7 @@
 from phidata.app.devbox import Devbox
 from phidata.app.postgres import PostgresDb
+from phidata.app.superset import Superset
+
 from phidata.workspace import WorkspaceConfig
 from phidata.infra.docker.config import DockerConfig
 
@@ -25,8 +27,9 @@ devbox = Devbox(
     db_connections={dev_pg_name: dev_pg.get_connection_url_docker()},
     create_airflow_test_user=True,
 )
+superset = Superset(enabled=False)
 dev_docker_config = DockerConfig(
-    apps=[devbox, dev_pg],
+    apps=[devbox, dev_pg, superset],
 )
 
 ## Configure the workspace
