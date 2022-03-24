@@ -17,7 +17,7 @@ from data.workspace.config import pg_db
 ##############################################################################
 
 # Step 1: Download user_activity data from a URL.
-# Define a File object which points to <ws_root_dir>/storage/dau/user_activity.csv
+# Define a File object which points to $WORKSPACE_DIR/storage/dau/user_activity.csv
 user_activity_csv = File(name="user_activity.csv", file_dir="dau")
 # Create a Workflow to download the user_activity data from a URL
 download = DownloadUrlToFile(
@@ -56,6 +56,6 @@ load_dau = RunSqlQuery(
     load_result_to=daily_active_users_table,
 )
 
-
 # Create a DataProduct for these tasks
 dau = DataProduct(name="dau", workflows=[download, upload, load_dau])
+dag = dau.create_airflow_dag()
