@@ -1,11 +1,11 @@
 from phidata.asset.file import File
 from phidata.asset.table.sql.postgres import PostgresTable
 from phidata.product import DataProduct
-from phidata.workflow.download.url.to_file import DownloadUrlToFile
-from phidata.workflow.upload.file.to_sql import UploadFileToSql
 from phidata.workflow.run.sql.query import RunSqlQuery
+from phidata.workflow.upload.file.to_sql import UploadFileToSql
+from phidata.workflow.download.url.to_file import DownloadUrlToFile
 
-from data.workspace.config import pg_db
+from data.workspace.config import dev_db
 
 ##############################################################################
 ## This example shows how to build a data product that calculates
@@ -13,7 +13,7 @@ from data.workspace.config import pg_db
 ## Steps:
 ##  1. Download user_activity data from a URL.
 ##  2. Upload user_activity data to a postgres table
-##  3. Calculate daily active users and load to a postgres table
+##  3. Load daily active users to a postgres table
 ##############################################################################
 
 # Step 1: Download user_activity data from a URL.
@@ -26,10 +26,10 @@ download = DownloadUrlToFile(
 )
 
 # Step 2: Upload user_activity data to a postgres table
-# Define a postgres table named `user_activity`. Use the connection url from pg_db
+# Define a postgres table named `user_activity`. Use the connection url from dev_db
 user_activity_table = PostgresTable(
     name="user_activity",
-    db_conn_url=pg_db.get_connection_url_local(),
+    db_conn_url=dev_db.get_connection_url_local(),
 )
 # Create a Workflow to load the file downloaded above to the PostgresTable
 upload = UploadFileToSql(
@@ -40,7 +40,7 @@ upload = UploadFileToSql(
 # Step 3: Calculate daily active users and load to a postgres table
 daily_active_users_table = PostgresTable(
     name="daily_active_users",
-    db_conn_url=pg_db.get_connection_url_local(),
+    db_conn_url=dev_db.get_connection_url_local(),
 )
 load_dau = RunSqlQuery(
     query=f"""
@@ -58,4 +58,3 @@ load_dau = RunSqlQuery(
 
 # Create a DataProduct for these tasks
 dau = DataProduct(name="dau", workflows=[download, upload, load_dau])
-dag = dau.create_airflow_dag()
