@@ -33,7 +33,7 @@ update_python_deps() {
   print_heading "Compiling requirements"
   cd $ROOT_DIR
   CUSTOM_COMPILE_COMMAND="./scripts/install.sh -u" \
-    pip-compile --upgrade
+    pip-compile --upgrade --pip-args "--no-cache-dir"
 }
 
 install_workspace() {

@@ -1,9 +1,9 @@
 from phidata.app.postgres import PostgresDb
-from phidata.workspace import WorkspaceConfig
 from phidata.infra.docker.config import DockerConfig
+from phidata.workspace import WorkspaceConfig
 
 ######################################################
-## Configure the dev environment running locally on docker
+## Configure docker resources
 ## Applications:
 ##  - Dev database: A postgres db running in a container for dev data
 ######################################################
