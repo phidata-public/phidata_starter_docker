@@ -10,11 +10,11 @@ from phidata.workspace import WorkspaceConfig
 
 dev_db = PostgresDb(
     name="dev-db",
-    postgres_db="dev",
-    postgres_user="dev",
-    postgres_password="dev",
+    db_user="dev",
+    db_password="dev",
+    db_schema="dev",
     # You can connect to this db on port 5532 (on the host machine)
-    container_host_port=5532,
+    container_host_port=9532,
 )
 dev_docker_config = DockerConfig(
     apps=[dev_db],
