@@ -16,7 +16,7 @@ dev_db = PostgresDb(
     container_host_port=5532,
 )
 
-#-*- Define the DockerConfig
+# -*- Define the DockerConfig
 dev_docker_config = DockerConfig(
     apps=[dev_db],
 )
