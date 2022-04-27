@@ -2,9 +2,11 @@ from phidata.app.postgres import PostgresDb
 from phidata.infra.docker.config import DockerConfig
 from phidata.workspace import WorkspaceConfig
 
-## Configure docker resources
+ws_key = "phidata-starter-docker"
 
-# 1. Dev database: A postgres instance for storing dev data
+# -*- Configure docker resources
+
+# Dev database: A postgres instance for storing dev data
 dev_db = PostgresDb(
     name="dev-db",
     db_user="dev",
@@ -14,12 +16,12 @@ dev_db = PostgresDb(
     container_host_port=5532,
 )
 
-## Define the DockerConfig
+#-*- Define the DockerConfig
 dev_docker_config = DockerConfig(
     apps=[dev_db],
 )
 
-## Define the WorkspaceConfig
+# -*- Define the WorkspaceConfig
 workspace = WorkspaceConfig(
     docker=[dev_docker_config],
 )
