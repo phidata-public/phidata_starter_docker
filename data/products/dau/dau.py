@@ -14,7 +14,7 @@ from workspace.config import dev_db
 
 # Step 1: Download user_activity data from a URL and load to a postgres table
 # Define a postgres table named `user_activity`.
-# Use the connection url from dev_db
+# Use the connection url from dev_db defined in the workspace/config.py file
 user_activity_table = PostgresTable(
     name="user_activity",
     db_conn_url=dev_db.get_db_connection_url_local(),
