@@ -6,11 +6,11 @@
 #
 anyio==3.5.0
     # via httpcore
-boto3==1.22.1
+boto3==1.22.3
     # via
     #   phidata
     #   phiterm
-botocore==1.25.1
+botocore==1.25.3
     # via
     #   boto3
     #   s3transfer
@@ -26,7 +26,7 @@ charset-normalizer==2.0.12
     # via
     #   httpx
     #   requests
-click==8.1.2
+click==8.1.3
     # via
     #   phiterm
     #   typer
@@ -66,13 +66,13 @@ numpy==1.22.3
 oauthlib==3.2.0
     # via requests-oauthlib
 pandas==1.4.2
-    # via data
-phidata==0.1.38
-    # via data
-phiterm==0.1.38
+    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
+phidata==0.1.39
+    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
+phiterm==0.1.39
     # via phidata
 psycopg2-binary==2.9.3
-    # via data
+    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
@@ -127,7 +127,7 @@ sniffio==1.2.0
     #   httpcore
     #   httpx
 sqlalchemy==1.4.36
-    # via data
+    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
 tomli==2.0.1
     # via phiterm
 typer==0.4.1
