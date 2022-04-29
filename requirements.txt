@@ -66,13 +66,13 @@ numpy==1.22.3
 oauthlib==3.2.0
     # via requests-oauthlib
 pandas==1.4.2
-    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
-phidata==0.1.39
-    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
-phiterm==0.1.39
+    # via data
+phidata==0.1.40
+    # via data
+phiterm==0.1.40
     # via phidata
 psycopg2-binary==2.9.3
-    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
+    # via data
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
@@ -127,7 +127,7 @@ sniffio==1.2.0
     #   httpcore
     #   httpx
 sqlalchemy==1.4.36
-    # via data (/Users/zu/phidata-public/phidata_starter_docker/pyproject.toml)
+    # via data
 tomli==2.0.1
     # via phiterm
 typer==0.4.1
